@@ -53,7 +53,7 @@ margin-left:12px;
 }
 
 .logo-text span{
-font-size:28px;
+font-size:26px;
 font-weight:bold;
 color:var(--primary);
 }
@@ -63,7 +63,11 @@ font-size:13px;
 color:var(--gray);
 }
 
-/* NAV */
+/* NAV DESKTOP */
+
+nav{
+display:flex;
+}
 
 nav a{
 margin-left:25px;
@@ -73,6 +77,15 @@ font-weight:500;
 }
 
 nav a:hover{
+color:var(--primary);
+}
+
+/* MOBILE MENU BUTTON */
+
+.menu-toggle{
+display:none;
+font-size:30px;
+cursor:pointer;
 color:var(--primary);
 }
 
@@ -106,7 +119,7 @@ color:var(--primary);
 margin-bottom:40px;
 }
 
-/* ABOUT TEXT */
+/* ABOUT */
 
 .about{
 max-width:900px;
@@ -116,7 +129,7 @@ font-size:16px;
 color:#444;
 }
 
-/* CARDS */
+/* SERVICES */
 
 .cards{
 display:flex;
@@ -159,6 +172,58 @@ padding:25px;
 margin-top:40px;
 }
 
+/* MOBILE RESPONSIVE */
+
+@media (max-width:768px){
+
+header{
+padding:15px 20px;
+}
+
+.menu-toggle{
+display:block;
+}
+
+nav{
+position:absolute;
+top:70px;
+right:20px;
+background:white;
+width:220px;
+border-radius:12px;
+box-shadow:0 8px 25px rgba(0,0,0,0.15);
+flex-direction:column;
+overflow:hidden;
+
+max-height:0;
+opacity:0;
+transform:translateY(-10px);
+transition:all 0.3s ease;
+}
+
+nav.show{
+max-height:300px;
+opacity:1;
+transform:translateY(0);
+}
+
+nav a{
+padding:15px 20px;
+margin:0;
+border-bottom:1px solid #eee;
+}
+
+.cards{
+flex-direction:column;
+align-items:center;
+}
+
+.hero h1{
+font-size:30px;
+}
+
+}
+
 </style>
 
 </head>
@@ -168,18 +233,17 @@ margin-top:40px;
 <header>
 
 <div class="logo">
-
 <img src="VA_20260221_163725_0004.png">
-
 <div class="logo-text">
 <span>Vodha Institute</span>
 <br>
 <small>Knowledge ● Insight ● Impact</small>
 </div>
-
 </div>
 
-<nav>
+<div class="menu-toggle" onclick="toggleMenu()">☰</div>
+
+<nav id="navMenu">
 <a href="#">Home</a>
 <a href="#about">About</a>
 <a href="#services">Services</a>
@@ -196,8 +260,6 @@ margin-top:40px;
 
 </section>
 
-<!-- ABOUT SECTION -->
-
 <section class="section" id="about">
 
 <h2>About Vodha Institute</h2>
@@ -209,26 +271,20 @@ Guided by the principle of <strong>Knowledge ● Insight ● Impact</strong>, Vo
 </p>
 
 <p>
-Our purpose is to transform knowledge into meaningful insight and measurable impact. We support researchers, professionals, and organizations in producing high-quality scientific work, strengthening research capacity, and enhancing professional competence. Through a rigorous, ethical, and evidence-based approach, we contribute to the advancement of knowledge, innovation, and organizational capability.
+Our purpose is to transform knowledge into meaningful insight and measurable impact. We support researchers, professionals, and organizations in producing high-quality scientific work, strengthening research capacity, and enhancing professional competence.
 </p>
 
 <p>
-Vodha Institute is officially registered with a Business Identification Number (NIB): <strong>1802260000519</strong>, reflecting our firm commitment to legal compliance, institutional credibility, and professional integrity. This legal foundation ensures that our services are delivered with reliability, accountability, and adherence to applicable regulations and professional standards.
+Vodha Institute is officially registered with Business Identification Number (NIB): <strong>1802260000519</strong>, reflecting our commitment to legal compliance, credibility, and professional integrity.
 </p>
 
 <p>
-We actively welcome strategic partnerships with universities, research institutions, corporations, government agencies, and other organizations. Our collaborative initiatives focus on advancing research excellence, supporting scientific publication, strengthening institutional capacity, and delivering high-impact professional and corporate training.
-</p>
-
-<p>
-For collaboration inquiries or further information, please contact us at <strong>vodhainstitute@gmail.com</strong>. We look forward to establishing meaningful partnerships and contributing to impactful academic, professional, and organizational advancement.
+For collaboration inquiries, please contact us at <strong>vodhainstitute@gmail.com</strong>.
 </p>
 
 </div>
 
 </section>
-
-<!-- SERVICES SECTION -->
 
 <section class="section" id="services">
 
@@ -238,44 +294,42 @@ For collaboration inquiries or further information, please contact us at <strong
 
 <div class="card">
 <h3>Journal Publishing</h3>
-<p>Scholarly journal publishing and scientific dissemination services.</p>
+<p>Scientific journal publishing and academic dissemination.</p>
 </div>
 
 <div class="card">
 <h3>Research Consulting</h3>
-<p>Professional consulting to support research and organizational development.</p>
+<p>Professional consulting for research and organizations.</p>
 </div>
 
 <div class="card">
 <h3>Academic Coaching</h3>
-<p>Mentoring and guidance for academic and research excellence.</p>
+<p>Academic mentoring and research guidance.</p>
 </div>
 
 <div class="card">
 <h3>Corporate Training</h3>
-<p>Professional training programs for companies and institutions.</p>
+<p>Professional and corporate training programs.</p>
 </div>
 
 <div class="card">
 <h3>Research Services</h3>
-<p>Comprehensive research and scientific support services.</p>
+<p>Comprehensive research and scientific support.</p>
 </div>
 
 </div>
 
 </section>
 
-<!-- CONTACT SECTION -->
-
 <section class="section" id="contact">
 
-<h2>Contact Us</h2>
+<h2>Contact</h2>
 
 <div class="contact">
 
-<p>Email: <strong>vodhainstitute@gmail.com</strong></p>
+<p>Email: vodhainstitute@gmail.com</p>
 
-<p>Business Identification Number (NIB): <strong>1802260000519</strong></p>
+<p>NIB: 1802260000519</p>
 
 </div>
 
@@ -286,6 +340,14 @@ For collaboration inquiries or further information, please contact us at <strong
 © 2026 Vodha Institute. All rights reserved.
 
 </footer>
+
+<script>
+
+function toggleMenu(){
+document.getElementById("navMenu").classList.toggle("show");
+}
+
+</script>
 
 </body>
 </html>
