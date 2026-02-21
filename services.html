@@ -1,19 +1,23 @@
 <!DOCTYPE html>
-
-
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>About - Vodha Institute</title>
-<link rel="stylesheet" href="assets/style.css">
+
+<title>Services - Vodha Institute</title>
 
 <style>
 
+/* ================= ROOT ================= */
+
 :root{
 --primary:#ff772b;
+--primary-light:#ff9a5c;
 --light:#f9fafb;
 --gray:#6b7280;
+--dark:#1a1a1a;
 }
 
 *{
@@ -22,12 +26,13 @@ box-sizing:border-box;
 
 body{
 margin:0;
-font-family:'Segoe UI',sans-serif;
+font-family:'Segoe UI',system-ui,-apple-system,sans-serif;
 background:var(--light);
-color:#1a1a1a;
+color:var(--dark);
 }
 
-/* HEADER */
+
+/* ================= HEADER ================= */
 
 header{
 background:white;
@@ -35,8 +40,10 @@ padding:15px 5%;
 display:flex;
 justify-content:space-between;
 align-items:center;
-flex-wrap:wrap;
-box-shadow:0 2px 8px rgba(0,0,0,0.05);
+box-shadow:0 2px 10px rgba(0,0,0,0.05);
+position:sticky;
+top:0;
+z-index:1000;
 }
 
 .logo{
@@ -56,124 +63,247 @@ color:var(--primary);
 }
 
 .logo-text small{
-font-size:13px;
 color:var(--gray);
 }
 
-/* NAVIGATION */
+
+/* NAV */
 
 nav{
 display:flex;
-gap:15px;
+gap:25px;
 }
 
 nav a{
 text-decoration:none;
 color:#333;
 font-weight:500;
-padding:8px 12px;
-border-radius:6px;
+position:relative;
 }
 
-nav a:hover{
-background:#fff3ec;
+nav a::after{
+content:"";
+width:0;
+height:2px;
+background:var(--primary);
+position:absolute;
+bottom:-5px;
+left:0;
+transition:0.3s;
+}
+
+nav a:hover::after{
+width:100%;
+}
+
+
+/* MOBILE */
+
+.menu-toggle{
+display:none;
+font-size:28px;
+cursor:pointer;
 color:var(--primary);
 }
 
-/* MOBILE NAV FIX */
+@media(max-width:768px){
 
-@media (max-width:600px){
+.menu-toggle{
+display:block;
+}
 
 nav{
-overflow-x:auto;
-white-space:nowrap;
-width:100%;
-margin-top:10px;
-padding-bottom:5px;
+position:absolute;
+top:70px;
+right:20px;
+background:white;
+flex-direction:column;
+width:230px;
+border-radius:12px;
+box-shadow:0 10px 40px rgba(0,0,0,0.2);
+max-height:0;
+overflow:hidden;
+opacity:0;
+transition:0.4s;
+}
+
+nav.show{
+max-height:400px;
+opacity:1;
 }
 
 nav a{
-display:inline-block;
-font-size:14px;
-flex:0 0 auto;
+padding:14px;
 }
 
 }
+
+
+/* HERO */
+
+.hero{
+background:linear-gradient(135deg,var(--primary),var(--primary-light));
+color:white;
+text-align:center;
+padding:90px 20px;
+}
+
+.hero h1{
+margin:0;
+font-size:38px;
+}
+
+.hero p{
+margin-top:10px;
+opacity:0.95;
+}
+
 
 /* SECTION */
 
 .section{
-padding:60px 5%;
-max-width:900px;
+padding:70px 5%;
+max-width:1200px;
 margin:auto;
 }
 
-.section h1{
+.section-title{
+text-align:center;
 color:var(--primary);
 font-size:32px;
+margin-bottom:50px;
 }
 
-.section h2{
-color:var(--primary);
-margin-top:50px;
+
+/* GRID */
+
+.services-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+gap:35px;
 }
 
-/* PROFILE CARD */
 
-.profile{
+/* CARD */
+
+.service-card{
+
 background:white;
-padding:30px;
-border-radius:15px;
-box-shadow:0 4px 15px rgba(0,0,0,0.08);
-margin-top:30px;
-text-align:center;
-max-width:500px;
-margin-left:auto;
-margin-right:auto;
+
+padding:35px;
+
+border-radius:16px;
+
+box-shadow:0 10px 30px rgba(0,0,0,0.08);
+
+position:relative;
+
+opacity:0;
+
+transform:translateY(40px);
+
+transition:
+transform 0.6s ease,
+opacity 0.6s ease,
+box-shadow 0.4s ease;
+
 }
 
-.profile img{
-width:180px;
-height:180px;
-object-fit:cover;
-border-radius:50%;
-margin-bottom:15px;
-box-shadow:0 6px 18px rgba(0,0,0,0.15);
+
+/* accent line */
+
+.service-card::before{
+
+content:"";
+
+width:0;
+height:4px;
+
+background:linear-gradient(
+90deg,
+var(--primary),
+var(--primary-light)
+);
+
+position:absolute;
+top:0;
+left:0;
+
+border-radius:16px 16px 0 0;
+
+transition:0.5s;
+
 }
 
-.profile-name{
-font-size:24px;
-font-weight:700;
+.service-card:hover::before{
+width:100%;
 }
 
-.profile-title{
-font-size:16px;
-font-weight:700;
+
+/* reveal */
+
+.service-card.active{
+opacity:1;
+transform:translateY(0);
+}
+
+
+/* hover */
+
+.service-card:hover{
+
+transform:translateY(-12px);
+
+box-shadow:0 25px 60px rgba(0,0,0,0.15);
+
+}
+
+
+.service-card h3{
 color:var(--primary);
-margin:10px 0;
+margin-top:0;
 }
 
-.profile-desc{
-font-size:15px;
+
+.service-card ul{
+padding-left:20px;
+line-height:1.9;
 color:#444;
-line-height:1.6;
 }
 
-.profile-links{
-margin-top:10px;
-}
 
-.profile-links a{
+/* BUTTON */
+
+.service-btn{
+
 display:inline-block;
-margin:6px 12px;
-color:var(--primary);
-font-weight:600;
+
+margin-top:20px;
+
+padding:12px 26px;
+
+background:var(--primary);
+
+color:white;
+
+border-radius:30px;
+
 text-decoration:none;
+
+font-weight:600;
+
+transition:0.3s;
+
 }
 
-.profile-links a:hover{
-text-decoration:underline;
+.service-btn:hover{
+
+transform:translateY(-3px);
+
+box-shadow:0 10px 25px rgba(0,0,0,0.2);
+
 }
+
 
 /* FOOTER */
 
@@ -181,54 +311,17 @@ footer{
 background:var(--primary);
 color:white;
 text-align:center;
-padding:20px;
+padding:25px;
 margin-top:60px;
 }
 
-/* MOBILE PROFILE */
-
-@media (max-width:600px){
-
-.section{
-padding:40px 20px;
-}
-
-.section h1{
-font-size:26px;
-}
-
-.profile{
-padding:25px 15px;
-}
-
-.profile img{
-width:140px;
-height:140px;
-}
-
-.profile-name{
-font-size:20px;
-}
-
-.profile-title{
-font-size:15px;
-}
-
-.profile-desc{
-font-size:14px;
-}
-
-.profile-links a{
-display:block;
-margin:6px 0;
-}
-
-}
 
 </style>
+
 </head>
 
 <body>
+
 
 <header>
 
@@ -237,21 +330,36 @@ margin:6px 0;
 <img src="VA_20260221_163725_0004.png">
 
 <div class="logo-text">
+
 <span>Vodha Institute</span><br>
+
 <small>Knowledge ● Insight ● Impact</small>
-</div>
 
 </div>
 
-<nav>
+</div>
+
+
+<div class="menu-toggle" onclick="toggleMenu()">☰</div>
+
+
+<nav id="navMenu">
+
 <a href="index.html">Home</a>
+
 <a href="about.html">About</a>
+
 <a href="services.html">Services</a>
+
 <a href="publications.html">Publications</a>
+
 <a href="contact.html">Contact</a>
+
 </nav>
 
 </header>
+
+
 
 <section class="hero">
 
@@ -263,9 +371,18 @@ Supporting research excellence, publishing, and professional development
 
 </section>
 
+
+
 <section class="section">
 
+<h2 class="section-title">
+Services
+</h2>
+
+
+
 <div class="services-grid">
+
 
 <!-- Journal Publishing -->
 
@@ -281,12 +398,13 @@ Supporting research excellence, publishing, and professional development
 <li>National and international publication standards</li>
 </ul>
 
-  
 <a href="contact.html" class="service-btn">
 Work With Us
 </a>
 
 </div>
+
+
 
 <!-- Research Consulting -->
 
@@ -309,13 +427,13 @@ Request Consultation
 
 </div>
 
+
+
 <!-- Academic Coaching -->
 
 <div class="service-card reveal">
 
 <h3>Academic Coaching</h3>
-
-<ul>
 
 <ul>
 <li>Thesis and dissertation guidance</li>
@@ -324,13 +442,14 @@ Request Consultation
 <li>Journal publication preparation</li>
 <li>Academic career development support</li>
 </ul>
-  
 
 <a href="contact.html" class="service-btn">
 Start Coaching
 </a>
 
 </div>
+
+
 
 <!-- Corporate Training -->
 
@@ -352,6 +471,8 @@ Request Training
 
 </div>
 
+
+
 <!-- Research Services -->
 
 <div class="service-card reveal">
@@ -372,9 +493,13 @@ Start Project
 
 </div>
 
+
+
 </div>
 
 </section>
+
+
 
 <footer>
 
@@ -382,40 +507,39 @@ Start Project
 
 </footer>
 
+
+
 <script>
 
-/* PREMIUM SCROLL REVEAL */
+/* MOBILE MENU */
 
-function reveal(){
-
-const reveals =
-document.querySelectorAll(".reveal");
-
-for(let i=0;i<reveals.length;i++){
-
-const windowHeight =
-window.innerHeight;
-
-const elementTop =
-reveals[i].getBoundingClientRect().top;
-
-const elementVisible = 100;
-
-if(elementTop < windowHeight - elementVisible){
-
-reveals[i].classList.add("active");
-
+function toggleMenu(){
+document.getElementById("navMenu").classList.toggle("show");
 }
 
+
+/* PREMIUM REVEAL */
+
+const observer =
+new IntersectionObserver(entries=>{
+
+entries.forEach(entry=>{
+
+if(entry.isIntersecting){
+entry.target.classList.add("active");
 }
 
-}
+});
 
-window.addEventListener("scroll", reveal);
+},{threshold:0.1});
 
-reveal();
+
+document.querySelectorAll(".reveal")
+.forEach(el=>observer.observe(el));
 
 </script>
+
+
 
 </body>
 </html>
