@@ -1,12 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
-<meta name="google-site-verification" content="oxglaPINtnu89wGRZ5OEOFcOJ354kDOAzJkE1SvLGcM" />
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Vodha Institute</title>
 
 <style>
@@ -18,8 +14,8 @@
 --gray:#6b7280;
 }
 
-*{
-box-sizing:border-box;
+html{
+scroll-behavior:smooth;
 }
 
 body{
@@ -33,26 +29,31 @@ color:#1a1a1a;
 
 header{
 background:white;
-padding:15px 5%;
+padding:15px 40px;
 display:flex;
 justify-content:space-between;
 align-items:center;
-flex-wrap:wrap;
 box-shadow:0 2px 8px rgba(0,0,0,0.05);
+position:sticky;
+top:0;
+z-index:1000;
 }
 
 .logo{
 display:flex;
 align-items:center;
-gap:12px;
 }
 
 .logo img{
-height:50px;
+height:55px;
+}
+
+.logo-text{
+margin-left:12px;
 }
 
 .logo-text span{
-font-size:24px;
+font-size:28px;
 font-weight:bold;
 color:var(--primary);
 }
@@ -62,44 +63,17 @@ font-size:13px;
 color:var(--gray);
 }
 
-/* NAVIGATION */
-
-nav{
-display:flex;
-gap:15px;
-}
+/* NAV */
 
 nav a{
+margin-left:25px;
 text-decoration:none;
 color:#333;
 font-weight:500;
-padding:8px 12px;
-border-radius:6px;
 }
 
 nav a:hover{
-background:#fff3ec;
 color:var(--primary);
-}
-
-/* MOBILE NAV FIX */
-
-@media (max-width:600px){
-
-nav{
-overflow-x:auto;
-white-space:nowrap;
-width:100%;
-margin-top:10px;
-padding-bottom:5px;
-}
-
-nav a{
-display:inline-block;
-font-size:14px;
-flex:0 0 auto;
-}
-
 }
 
 /* HERO */
@@ -108,47 +82,38 @@ flex:0 0 auto;
 background:linear-gradient(135deg,var(--primary),var(--primary-light));
 color:white;
 text-align:center;
-padding:60px 20px;
+padding:120px 20px;
 }
 
-.hero-banner{
-width:100%;
-max-width:900px;
-height:auto;
-border-radius:20px;
-box-shadow:0 10px 25px rgba(0,0,0,0.15);
-margin-bottom:25px;
+.hero h1{
+font-size:42px;
+margin-bottom:10px;
 }
 
 .hero p{
-font-size:32px;
-font-weight:600;
-max-width:900px;
-margin:auto;
-line-height:1.4;
+font-size:20px;
 }
 
 /* SECTION */
 
 .section{
-padding:60px 5%;
-text-align:center;
+padding:70px 20px;
 }
 
 .section h2{
+text-align:center;
 color:var(--primary);
-margin-bottom:30px;
-font-size:28px;
+margin-bottom:40px;
 }
 
 /* ABOUT TEXT */
 
 .about{
-max-width:800px;
+max-width:900px;
 margin:auto;
-color:#444;
-line-height:1.7;
+line-height:1.8;
 font-size:16px;
+color:#444;
 }
 
 /* CARDS */
@@ -164,7 +129,6 @@ gap:25px;
 background:white;
 padding:25px;
 width:280px;
-max-width:100%;
 border-radius:12px;
 box-shadow:0 4px 12px rgba(0,0,0,0.08);
 transition:0.3s;
@@ -178,44 +142,25 @@ transform:translateY(-6px);
 color:var(--primary);
 }
 
+/* CONTACT */
+
+.contact{
+text-align:center;
+font-size:18px;
+}
+
 /* FOOTER */
 
 footer{
 background:var(--primary);
 color:white;
 text-align:center;
-padding:20px;
+padding:25px;
 margin-top:40px;
-font-size:14px;
-}
-
-/* MOBILE OPTIMIZATION */
-
-@media (max-width:600px){
-
-.hero{
-padding:40px 15px;
-}
-
-.hero p{
-font-size:22px;
-}
-
-.section{
-padding:40px 20px;
-}
-
-.section h2{
-font-size:24px;
-}
-
-.about{
-font-size:15px;
-}
-
 }
 
 </style>
+
 </head>
 
 <body>
@@ -227,62 +172,78 @@ font-size:15px;
 <img src="VA_20260221_163725_0004.png">
 
 <div class="logo-text">
-<span>Vodha Institute</span><br>
+<span>Vodha Institute</span>
+<br>
 <small>Knowledge ● Insight ● Impact</small>
 </div>
 
 </div>
 
 <nav>
-<a href="index.html">Home</a>
-<a href="about.html">About</a>
-<a href="services.html">Services</a>
-<a href="publications.html">Publications</a>
-<a href="contact.html">Contact</a>
+<a href="#">Home</a>
+<a href="#about">About</a>
+<a href="#services">Services</a>
+<a href="#contact">Contact</a>
 </nav>
 
 </header>
 
-<!-- HERO -->
-
 <section class="hero">
 
-<img src="VA_20260221_190634_0008.png" class="hero-banner">
+<h1>Knowledge ● Insight ● Impact</h1>
 
-<p>
-Advancing Research, Publishing, and Professional Development
-</p>
+<p>Advancing Research, Publishing, and Professional Development</p>
 
 </section>
 
-<!-- ABOUT -->
+<!-- ABOUT SECTION -->
 
-<section class="section">
+<section class="section" id="about">
 
 <h2>About Vodha Institute</h2>
 
-<p class="about">
-Vodha Institute is an independent academic and professional institution specializing in journal publishing, research consulting, academic coaching, and corporate training. We provide comprehensive research services to support researchers, professionals, and organizations in achieving excellence and creating meaningful impact.
+<div class="about">
+
+<p>
+Guided by the principle of <strong>Knowledge ● Insight ● Impact</strong>, Vodha Institute is an independent academic and professional institution committed to advancing research excellence, scientific publishing, and professional development. We provide comprehensive services in scholarly journal publishing, research consulting, academic coaching, corporate training, and specialized research support for individuals, academic institutions, government agencies, and private sector organizations.
 </p>
+
+<p>
+Our purpose is to transform knowledge into meaningful insight and measurable impact. We support researchers, professionals, and organizations in producing high-quality scientific work, strengthening research capacity, and enhancing professional competence. Through a rigorous, ethical, and evidence-based approach, we contribute to the advancement of knowledge, innovation, and organizational capability.
+</p>
+
+<p>
+Vodha Institute is officially registered with a Business Identification Number (NIB): <strong>1802260000519</strong>, reflecting our firm commitment to legal compliance, institutional credibility, and professional integrity. This legal foundation ensures that our services are delivered with reliability, accountability, and adherence to applicable regulations and professional standards.
+</p>
+
+<p>
+We actively welcome strategic partnerships with universities, research institutions, corporations, government agencies, and other organizations. Our collaborative initiatives focus on advancing research excellence, supporting scientific publication, strengthening institutional capacity, and delivering high-impact professional and corporate training.
+</p>
+
+<p>
+For collaboration inquiries or further information, please contact us at <strong>vodhainstitute@gmail.com</strong>. We look forward to establishing meaningful partnerships and contributing to impactful academic, professional, and organizational advancement.
+</p>
+
+</div>
 
 </section>
 
-<!-- SERVICES -->
+<!-- SERVICES SECTION -->
 
-<section class="section">
+<section class="section" id="services">
 
-<h2>Our Core Services</h2>
+<h2>Our Services</h2>
 
 <div class="cards">
 
 <div class="card">
 <h3>Journal Publishing</h3>
-<p>Academic journal publication and scientific dissemination.</p>
+<p>Scholarly journal publishing and scientific dissemination services.</p>
 </div>
 
 <div class="card">
 <h3>Research Consulting</h3>
-<p>Professional consulting for academic and organizational research.</p>
+<p>Professional consulting to support research and organizational development.</p>
 </div>
 
 <div class="card">
@@ -297,8 +258,24 @@ Vodha Institute is an independent academic and professional institution speciali
 
 <div class="card">
 <h3>Research Services</h3>
-<p>Scientific analysis, publication support, and research assistance.</p>
+<p>Comprehensive research and scientific support services.</p>
 </div>
+
+</div>
+
+</section>
+
+<!-- CONTACT SECTION -->
+
+<section class="section" id="contact">
+
+<h2>Contact Us</h2>
+
+<div class="contact">
+
+<p>Email: <strong>vodhainstitute@gmail.com</strong></p>
+
+<p>Business Identification Number (NIB): <strong>1802260000519</strong></p>
 
 </div>
 
