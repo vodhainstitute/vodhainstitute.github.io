@@ -3,19 +3,15 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Services - Vodha Institute</title>
+<title>Services | Vodha Institute</title>
 
 <style>
 
 :root{
 --primary:#ff772b;
+--primary-light:#ff9a5c;
 --light:#f9fafb;
 --gray:#6b7280;
-}
-
-*{
-box-sizing:border-box;
 }
 
 body{
@@ -25,157 +21,86 @@ background:var(--light);
 color:#1a1a1a;
 }
 
-/* HEADER */
-
 header{
 background:white;
-padding:15px 5%;
+padding:15px 40px;
 display:flex;
 justify-content:space-between;
 align-items:center;
-flex-wrap:wrap;
 box-shadow:0 2px 8px rgba(0,0,0,0.05);
 }
 
 .logo{
 display:flex;
 align-items:center;
-gap:12px;
 }
 
 .logo img{
-height:50px;
+height:55px;
+}
+
+.logo-text{
+margin-left:12px;
 }
 
 .logo-text span{
-font-size:24px;
+font-size:26px;
 font-weight:bold;
 color:var(--primary);
 }
 
-/* NAVIGATION */
-
-nav{
-display:flex;
-gap:15px;
+.logo-text small{
+font-size:13px;
+color:var(--gray);
 }
 
 nav a{
+margin-left:25px;
 text-decoration:none;
 color:#333;
 font-weight:500;
-padding:8px 12px;
-border-radius:6px;
 }
 
 nav a:hover{
-background:#fff3ec;
 color:var(--primary);
 }
 
-/* MOBILE NAV FIX */
-
-@media (max-width:600px){
-
-nav{
-overflow-x:auto;
-white-space:nowrap;
-width:100%;
-margin-top:10px;
-padding-bottom:5px;
+.hero{
+background:linear-gradient(135deg,var(--primary),var(--primary-light));
+color:white;
+text-align:center;
+padding:80px 20px;
 }
-
-nav a{
-display:inline-block;
-font-size:14px;
-flex:0 0 auto;
-}
-
-}
-
-/* SECTION */
 
 .section{
-padding:60px 5%;
-text-align:center;
-}
-
-.section h1{
-color:var(--primary);
-font-size:32px;
-margin-bottom:40px;
-}
-
-/* CARDS GRID */
-
-.cards{
-display:grid;
-grid-template-columns:repeat(auto-fit, minmax(260px, 1fr));
-gap:25px;
+padding:60px 20px;
 max-width:900px;
 margin:auto;
 }
 
-/* CARD */
-
-.card{
+.service{
 background:white;
-padding:25px;
+padding:30px;
+margin-bottom:25px;
 border-radius:12px;
 box-shadow:0 4px 12px rgba(0,0,0,0.08);
-transition:0.3s;
 }
 
-.card:hover{
-transform:translateY(-6px);
-}
-
-.card h3{
-margin-bottom:10px;
+.service h3{
 color:var(--primary);
-font-weight:700;
-font-size:20px;
+margin-bottom:10px;
 }
-
-.card p{
-color:#444;
-line-height:1.6;
-}
-
-/* FOOTER */
 
 footer{
 background:var(--primary);
 color:white;
 text-align:center;
 padding:20px;
-margin-top:60px;
-font-size:14px;
-}
-
-/* MOBILE OPTIMIZATION */
-
-@media (max-width:600px){
-
-.section{
-padding:40px 20px;
-}
-
-.section h1{
-font-size:26px;
-}
-
-.cards{
-grid-template-columns:1fr;
-}
-
-.card{
-padding:20px;
-}
-
+margin-top:40px;
 }
 
 </style>
+
 </head>
 
 <body>
@@ -183,65 +108,77 @@ padding:20px;
 <header>
 
 <div class="logo">
-
 <img src="VA_20260221_163725_0004.png">
-
 <div class="logo-text">
 <span>Vodha Institute</span>
+<br>
+<small>Knowledge ● Insight ● Impact</small>
 </div>
-
 </div>
 
 <nav>
 <a href="index.html">Home</a>
-<a href="about.html">About</a>
 <a href="services.html">Services</a>
-<a href="publications.html">Publications</a>
-<a href="contact.html">Contact</a>
 </nav>
 
 </header>
 
+<section class="hero">
+
+<h1>Our Professional Services</h1>
+<p>Supporting research excellence, publishing, and professional development</p>
+
+</section>
+
 <section class="section">
 
-<h1>Our Services</h1>
+<div class="service">
 
-<div class="cards">
-
-<div class="card">
 <h3>Journal Publishing</h3>
+
 <p>
-Academic journal publication support, manuscript editing, formatting, and submission assistance for national and international journals.
+Vodha Institute provides professional academic journal publishing services to support the dissemination of high-quality scientific research. We assist in manuscript preparation, editorial processes, formatting, and publication aligned with national and international standards, ensuring credibility and academic impact.
 </p>
+
 </div>
 
-<div class="card">
+<div class="service">
+
 <h3>Research Consulting</h3>
+
 <p>
-Professional consulting services for academic and organizational research, including research design, methodology, and analysis guidance.
+We deliver high-level research consulting services for academic institutions, government agencies, and corporate organizations. Our services include research design, methodology development, advanced data analysis, program evaluation, and evidence-based reporting to support strategic decision-making and innovation.
 </p>
+
 </div>
 
-<div class="card">
+<div class="service">
+
 <h3>Academic Coaching</h3>
+
 <p>
-Mentoring and coaching for students, researchers, and academics in research development, thesis writing, and publication preparation.
+Our academic coaching services support students, researchers, and professionals in developing high-quality academic work. We provide guidance in thesis development, academic writing, research methodology, and journal publication preparation.
 </p>
+
 </div>
 
-<div class="card">
+<div class="service">
+
 <h3>Corporate Training</h3>
+
 <p>
-Professional training programs designed for organizations to enhance research capability, strategic thinking, and evidence-based management.
+We provide professional training programs tailored to organizational needs, focusing on research capability, data analysis, and professional development. Our training enhances human capital and supports organizational growth and performance.
 </p>
+
 </div>
 
-<div class="card">
+<div class="service">
+
 <h3>Research Services</h3>
+
 <p>
-Comprehensive research support including data analysis, statistical modeling, report development, and publication preparation.
+We offer comprehensive research support services including data analysis, research implementation, report preparation, and scientific documentation. Our services ensure accurate, reliable, and professional research outcomes.
 </p>
-</div>
 
 </div>
 
