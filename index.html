@@ -33,20 +33,21 @@ overflow-x:hidden;
 
 header{
 background:white;
-padding:15px 5% 0 5%;
+padding:15px 5%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+flex-wrap:wrap;
 box-shadow:0 2px 8px rgba(0,0,0,0.05);
 position:sticky;
 top:0;
 z-index:1000;
 }
 
-/* LOGO AREA */
-
 .logo{
 display:flex;
 align-items:center;
 gap:12px;
-margin-bottom:10px;
 }
 
 .logo img{
@@ -64,21 +65,18 @@ font-size:13px;
 color:var(--gray);
 }
 
-/* MENU DI BAWAH LOGO */
+/* NAVIGATION — sama seperti About */
 
 nav{
 display:flex;
-justify-content:center;
-gap:35px;
-padding:12px 0;
-border-top:1px solid #eee;
+gap:25px;
 }
 
 nav a{
 text-decoration:none;
 color:#333;
 font-weight:500;
-padding:6px 10px;
+padding:8px 12px;
 border-radius:6px;
 transition:0.3s;
 }
@@ -88,21 +86,24 @@ background:#fff3ec;
 color:var(--primary);
 }
 
-/* MOBILE MENU */
+/* MOBILE */
 
 @media(max-width:768px){
 
+header{
+flex-direction:column;
+align-items:flex-start;
+}
+
 nav{
+width:100%;
 overflow-x:auto;
 white-space:nowrap;
-justify-content:flex-start;
-gap:20px;
-padding-left:10px;
+margin-top:10px;
 }
 
 nav a{
-flex:0 0 auto;
-font-size:14px;
+display:inline-block;
 }
 
 }
