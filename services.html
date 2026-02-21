@@ -3,15 +3,18 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Services | Vodha Institute</title>
+<title>About - Vodha Institute</title>
 
 <style>
 
 :root{
 --primary:#ff772b;
---primary-light:#ff9a5c;
 --light:#f9fafb;
 --gray:#6b7280;
+}
+
+*{
+box-sizing:border-box;
 }
 
 body{
@@ -21,30 +24,30 @@ background:var(--light);
 color:#1a1a1a;
 }
 
+/* HEADER */
+
 header{
 background:white;
-padding:15px 40px;
+padding:15px 5%;
 display:flex;
 justify-content:space-between;
 align-items:center;
+flex-wrap:wrap;
 box-shadow:0 2px 8px rgba(0,0,0,0.05);
 }
 
 .logo{
 display:flex;
 align-items:center;
+gap:12px;
 }
 
 .logo img{
-height:55px;
-}
-
-.logo-text{
-margin-left:12px;
+height:50px;
 }
 
 .logo-text span{
-font-size:26px;
+font-size:24px;
 font-weight:bold;
 color:var(--primary);
 }
@@ -54,53 +57,172 @@ font-size:13px;
 color:var(--gray);
 }
 
+/* NAVIGATION */
+
+nav{
+display:flex;
+gap:15px;
+}
+
 nav a{
-margin-left:25px;
 text-decoration:none;
 color:#333;
 font-weight:500;
+padding:8px 12px;
+border-radius:6px;
 }
 
 nav a:hover{
+background:#fff3ec;
 color:var(--primary);
 }
 
-.hero{
-background:linear-gradient(135deg,var(--primary),var(--primary-light));
-color:white;
-text-align:center;
-padding:80px 20px;
+/* MOBILE NAV FIX */
+
+@media (max-width:600px){
+
+nav{
+overflow-x:auto;
+white-space:nowrap;
+width:100%;
+margin-top:10px;
+padding-bottom:5px;
 }
 
+nav a{
+display:inline-block;
+font-size:14px;
+flex:0 0 auto;
+}
+
+}
+
+/* SECTION */
+
 .section{
-padding:60px 20px;
+padding:60px 5%;
 max-width:900px;
 margin:auto;
 }
 
-.service{
-background:white;
-padding:30px;
-margin-bottom:25px;
-border-radius:12px;
-box-shadow:0 4px 12px rgba(0,0,0,0.08);
+.section h1{
+color:var(--primary);
+font-size:32px;
 }
 
-.service h3{
+.section h2{
 color:var(--primary);
-margin-bottom:10px;
+margin-top:50px;
 }
+
+/* PROFILE CARD */
+
+.profile{
+background:white;
+padding:30px;
+border-radius:15px;
+box-shadow:0 4px 15px rgba(0,0,0,0.08);
+margin-top:30px;
+text-align:center;
+max-width:500px;
+margin-left:auto;
+margin-right:auto;
+}
+
+.profile img{
+width:180px;
+height:180px;
+object-fit:cover;
+border-radius:50%;
+margin-bottom:15px;
+box-shadow:0 6px 18px rgba(0,0,0,0.15);
+}
+
+.profile-name{
+font-size:24px;
+font-weight:700;
+}
+
+.profile-title{
+font-size:16px;
+font-weight:700;
+color:var(--primary);
+margin:10px 0;
+}
+
+.profile-desc{
+font-size:15px;
+color:#444;
+line-height:1.6;
+}
+
+.profile-links{
+margin-top:10px;
+}
+
+.profile-links a{
+display:inline-block;
+margin:6px 12px;
+color:var(--primary);
+font-weight:600;
+text-decoration:none;
+}
+
+.profile-links a:hover{
+text-decoration:underline;
+}
+
+/* FOOTER */
 
 footer{
 background:var(--primary);
 color:white;
 text-align:center;
 padding:20px;
-margin-top:40px;
+margin-top:60px;
+}
+
+/* MOBILE PROFILE */
+
+@media (max-width:600px){
+
+.section{
+padding:40px 20px;
+}
+
+.section h1{
+font-size:26px;
+}
+
+.profile{
+padding:25px 15px;
+}
+
+.profile img{
+width:140px;
+height:140px;
+}
+
+.profile-name{
+font-size:20px;
+}
+
+.profile-title{
+font-size:15px;
+}
+
+.profile-desc{
+font-size:14px;
+}
+
+.profile-links a{
+display:block;
+margin:6px 0;
+}
+
 }
 
 </style>
-
 </head>
 
 <body>
@@ -108,12 +230,14 @@ margin-top:40px;
 <header>
 
 <div class="logo">
+
 <img src="VA_20260221_163725_0004.png">
+
 <div class="logo-text">
-<span>Vodha Institute</span>
-<br>
+<span>Vodha Institute</span><br>
 <small>Knowledge ● Insight ● Impact</small>
 </div>
+
 </div>
 
 <nav>
