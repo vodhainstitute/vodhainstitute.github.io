@@ -63,7 +63,7 @@ font-size:13px;
 color:var(--gray);
 }
 
-/* NAV DESKTOP */
+/* NAV */
 
 nav{
 display:flex;
@@ -74,13 +74,14 @@ margin-left:25px;
 text-decoration:none;
 color:#333;
 font-weight:500;
+transition:0.3s;
 }
 
 nav a:hover{
 color:var(--primary);
 }
 
-/* MOBILE MENU BUTTON */
+/* MOBILE MENU */
 
 .menu-toggle{
 display:none;
@@ -95,16 +96,47 @@ color:var(--primary);
 background:linear-gradient(135deg,var(--primary),var(--primary-light));
 color:white;
 text-align:center;
-padding:120px 20px;
+padding:100px 20px 120px 20px;
+}
+
+/* HERO LOGO CENTER */
+
+.hero-logo{
+width:220px;
+margin-bottom:25px;
+animation:fadeUp 1.2s ease;
+filter:drop-shadow(0 10px 25px rgba(0,0,0,0.2));
 }
 
 .hero h1{
 font-size:42px;
 margin-bottom:10px;
+animation:fadeUp 1.4s ease;
 }
 
 .hero p{
 font-size:20px;
+margin-bottom:30px;
+animation:fadeUp 1.6s ease;
+}
+
+/* BUTTON */
+
+.hero-btn{
+display:inline-block;
+background:white;
+color:var(--primary);
+padding:14px 28px;
+border-radius:30px;
+font-weight:bold;
+text-decoration:none;
+transition:0.3s;
+animation:fadeUp 1.8s ease;
+}
+
+.hero-btn:hover{
+transform:translateY(-3px);
+box-shadow:0 10px 25px rgba(0,0,0,0.2);
 }
 
 /* SECTION */
@@ -127,6 +159,7 @@ margin:auto;
 line-height:1.8;
 font-size:16px;
 color:#444;
+animation:fadeUp 1s ease;
 }
 
 /* SERVICES */
@@ -145,10 +178,12 @@ width:280px;
 border-radius:12px;
 box-shadow:0 4px 12px rgba(0,0,0,0.08);
 transition:0.3s;
+animation:fadeUp 1s ease;
 }
 
 .card:hover{
-transform:translateY(-6px);
+transform:translateY(-8px);
+box-shadow:0 15px 35px rgba(0,0,0,0.15);
 }
 
 .card h3{
@@ -172,7 +207,20 @@ padding:25px;
 margin-top:40px;
 }
 
-/* MOBILE RESPONSIVE */
+/* ANIMATION */
+
+@keyframes fadeUp{
+from{
+opacity:0;
+transform:translateY(30px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+
+/* MOBILE */
 
 @media (max-width:768px){
 
@@ -218,8 +266,16 @@ flex-direction:column;
 align-items:center;
 }
 
+.hero-logo{
+width:160px;
+}
+
 .hero h1{
-font-size:30px;
+font-size:28px;
+}
+
+.hero p{
+font-size:16px;
 }
 
 }
@@ -254,9 +310,13 @@ font-size:30px;
 
 <section class="hero">
 
+<img src="VA_20260221_163725_0004.png" class="hero-logo">
+
 <h1>Knowledge ● Insight ● Impact</h1>
 
 <p>Advancing Research, Publishing, and Professional Development</p>
+
+<a href="#contact" class="hero-btn">Work With Us</a>
 
 </section>
 
@@ -267,15 +327,15 @@ font-size:30px;
 <div class="about">
 
 <p>
-Guided by the principle of <strong>Knowledge ● Insight ● Impact</strong>, Vodha Institute is an independent academic and professional institution committed to advancing research excellence, scientific publishing, and professional development. We provide comprehensive services in scholarly journal publishing, research consulting, academic coaching, corporate training, and specialized research support for individuals, academic institutions, government agencies, and private sector organizations.
+Vodha Institute is an independent academic and professional institution established to advance excellence in research, scientific publishing, and professional capacity development. Guided by our principle <strong>Knowledge ● Insight ● Impact</strong>, we provide integrated services including scholarly journal publishing, research consulting, academic coaching, corporate training, and specialized research support tailored to individuals, academic institutions, government agencies, and private sector organizations.
 </p>
 
 <p>
-Our purpose is to transform knowledge into meaningful insight and measurable impact. We support researchers, professionals, and organizations in producing high-quality scientific work, strengthening research capacity, and enhancing professional competence.
+We are committed to supporting the creation of high-quality scientific work, strengthening research capability, and enhancing professional competence aligned with academic and industry needs. Our approach combines academic rigor, practical relevance, and professional integrity to ensure meaningful, measurable, and sustainable impact.
 </p>
 
 <p>
-Vodha Institute is officially registered with Business Identification Number (NIB): <strong>1802260000519</strong>, reflecting our commitment to legal compliance, credibility, and professional integrity.
+Vodha Institute is officially registered with Business Identification Number (NIB): <strong>1802260000519</strong>, reflecting our commitment to legal compliance, institutional credibility, and professional integrity.
 </p>
 
 <p>
@@ -299,22 +359,22 @@ For collaboration inquiries, please contact us at <strong>vodhainstitute@gmail.c
 
 <div class="card">
 <h3>Research Consulting</h3>
-<p>Professional consulting for research and organizations.</p>
+<p>Professional consulting for academic and organizational research.</p>
 </div>
 
 <div class="card">
 <h3>Academic Coaching</h3>
-<p>Academic mentoring and research guidance.</p>
+<p>Mentoring and guidance for academic and research excellence.</p>
 </div>
 
 <div class="card">
 <h3>Corporate Training</h3>
-<p>Professional and corporate training programs.</p>
+<p>Professional training programs for companies and institutions.</p>
 </div>
 
 <div class="card">
 <h3>Research Services</h3>
-<p>Comprehensive research and scientific support.</p>
+<p>Scientific analysis, publication support, and research assistance.</p>
 </div>
 
 </div>
