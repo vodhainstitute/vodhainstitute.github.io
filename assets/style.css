@@ -9,6 +9,22 @@
 box-sizing:border-box;
 }
 
+<script>
+let slides = document.querySelectorAll(".testimonial-slide");
+let index = 0;
+
+function showSlide(){
+slides.forEach(slide => slide.classList.remove("active"));
+index++;
+if(index > slides.length){
+index = 1;
+}
+slides[index-1].classList.add("active");
+}
+
+setInterval(showSlide, 5000);
+</script>
+
 body{
 margin:0;
 font-family:'Segoe UI',sans-serif;
@@ -213,3 +229,48 @@ border-top:1px solid #eee;
 }
 
 }
+
+/* TESTIMONIAL SLIDER */
+
+.testimonial-wrapper{
+position:relative;
+max-width:800px;
+margin:40px auto 0 auto;
+}
+
+.testimonial-slide{
+display:none;
+text-align:center;
+background:white;
+padding:40px 30px;
+border-radius:16px;
+box-shadow:0 10px 30px rgba(0,0,0,0.08);
+animation:fadeIn 0.8s ease;
+}
+
+.testimonial-slide.active{
+display:block;
+}
+
+.testimonial-avatar img{
+width:80px;
+height:80px;
+border-radius:50%;
+object-fit:cover;
+margin-bottom:15px;
+box-shadow:0 6px 15px rgba(0,0,0,0.15);
+}
+
+.testimonial-rating{
+color:#ffb400;
+font-size:20px;
+margin-bottom:15px;
+letter-spacing:3px;
+}
+
+@keyframes fadeIn{
+from{opacity:0;transform:translateY(15px);}
+to{opacity:1;transform:translateY(0);}
+}
+
+
