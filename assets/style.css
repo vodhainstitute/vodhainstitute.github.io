@@ -11,19 +11,17 @@ box-sizing:border-box;
 
 <script>
 let slides = document.querySelectorAll(".testimonial-slide");
-let index = 0;
+let current = 0;
 
-function showSlide(){
-slides.forEach(slide => slide.classList.remove("active"));
-index++;
-if(index > slides.length){
-index = 1;
-}
-slides[index-1].classList.add("active");
+function nextSlide(){
+slides[current].classList.remove("active");
+current = (current + 1) % slides.length;
+slides[current].classList.add("active");
 }
 
-setInterval(showSlide, 5000);
+setInterval(nextSlide, 5000);
 </script>
+
 
 body{
 margin:0;
@@ -245,19 +243,24 @@ background:white;
 padding:40px 30px;
 border-radius:16px;
 box-shadow:0 10px 30px rgba(0,0,0,0.08);
-animation:fadeIn 0.8s ease;
 }
 
 .testimonial-slide.active{
 display:block;
 }
 
-.testimonial-avatar img{
+.testimonial-avatar{
 width:80px;
 height:80px;
 border-radius:50%;
-object-fit:cover;
-margin-bottom:15px;
+background:#ff772b;
+color:white;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:28px;
+font-weight:bold;
+margin:0 auto 15px auto;
 box-shadow:0 6px 15px rgba(0,0,0,0.15);
 }
 
@@ -267,10 +270,3 @@ font-size:20px;
 margin-bottom:15px;
 letter-spacing:3px;
 }
-
-@keyframes fadeIn{
-from{opacity:0;transform:translateY(15px);}
-to{opacity:1;transform:translateY(0);}
-}
-
-
